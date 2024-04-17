@@ -128,7 +128,7 @@ class MultipartFileParser {
     /**
      * Validates Mowers are inside boundaries and  have different starting positions
      */
-    private fun validateInitialPositions(plateau: Plateau): Boolean {
+    private fun validateInitialPositions(plateau: Plateau) {
 
         plateau.occupiedCoordinates().also { coordinatesList ->
             coordinatesList.find { it.x !in 0 .. plateau.size.x || it.y !in 0 .. plateau.size.y }
@@ -145,7 +145,5 @@ class MultipartFileParser {
             ?.let {
                 throw MultipartFileParserException("$DUPLICATED_INITIAL_COORDINATES $it")
             }
-
-        return true
     }
 }
