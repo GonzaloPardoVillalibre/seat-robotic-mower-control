@@ -94,7 +94,10 @@ class MultipartFileParser {
      * Validates the Plateau line
      */
     private fun validatePlateau(plateau: List<String>) {
-        if (plateau.size != 2 || plateau.any { it.toIntOrNull() == null }) {
+        if (plateau.size != 2
+            || plateau.any { it.toIntOrNull() == null }
+            || plateau.any { it.toIntOrNull()!! < 0 }
+        ) {
             throw MultipartFileParserException(INVALID_PLATEAU)
         }
     }
@@ -131,7 +134,7 @@ class MultipartFileParser {
     private fun validateInitialPositions(plateau: Plateau) {
 
         plateau.occupiedCoordinates().also { coordinatesList ->
-            coordinatesList.find { it.x !in 0 .. plateau.size.x || it.y !in 0 .. plateau.size.y }
+            coordinatesList.find { it.x !in 0..plateau.size.x || it.y !in 0..plateau.size.y }
                 ?.let {
                     throw MultipartFileParserException("$ILLEGAL_INITIAL_COORDINATES $it")
                 }
