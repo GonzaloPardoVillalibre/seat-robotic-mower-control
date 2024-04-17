@@ -21,7 +21,7 @@ Recommendations
 
 ## FINAL DECISSION
 
-We will develop a REST API to manage and control the robotic mowers at the SEAT Martorell Factory. The decision Drivers were:
+We will develop a REST API to manage and control the robotic mowers at the SEAT Martorell Factory. The decision drivers were:
 - **Scalability**: The project, although in its MVP stage, is positioned to scale significantly. A REST API can effectively manage increased load from more mowers and larger areas without significant changes to the underlying architecture.
 
 - **Integration Capability** with third apps.
@@ -31,4 +31,4 @@ We will develop a REST API to manage and control the robotic mowers at the SEAT 
 - **Future Proofing**: The REST architecture is widely supported and understood, making it easier to maintain and update the system as technology evolves and new features are required.
 
 
-Given the strategic importance of the project, its potential to scale, and the need for integration with other technological systems within the SEAT factory, a REST API seems like a good choice. This approach ensures that the mower control system is robust, flexible, and future-ready.
+Given the strategic importance of the project, its potential to scale, and the possible need for integration with other technological systems within the SEAT factory, a REST API seems like a good choice. This approach ensures that the mower control system is robust, flexible, and future-ready.

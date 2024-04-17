@@ -16,7 +16,7 @@ Initially, a **Rich Domain Model** was chosen, utilizing the delegator design pa
 - **Simplifying Interactions**: By delegating responsibilities directly to the domain entities, the model initially aimed to reduce the complexity of interactions within the system, promoting a more intuitive and maintainable architecture.
 
 ### Transition to Anemic Domain Model
-However, it quickly became apparent that a Rich Domain Model might overcomplicate the interactions between the entities due to excessive logic embedded within the domain objects themselves. To address this, the decision was made to shift towards an **Anemic Domain Model** through a centralizing logic in `@Service`. The service, now designated as the usecase, was tasked with broader responsibilities, moving away from a delegator-centric approach. This includes:
+However, it quickly became apparent that a Rich Domain Model might overcomplicate the interactions between the entities due to excessive logic embedded within the domain objects themselves. To address this, the decision was made to shift towards an **Anemic Domain Model** through a centralizing logic in a `@Service`. The service, now designated as the usecase, was tasked with broader responsibilities, moving away from a delegator-centric approach. This includes:
 - **Parsing and Validating Input**: This operation is offloaded to a separate `@Component` to adhere to the Single Responsibility Principle, ensuring that our service remains focused on core functionalities.
 - **Mower Movement Coordination**: The service orchestrates the movement of mowers across the field. It ensures that the mowers do not collide and remain within the predefined boundaries of the grid.
 
