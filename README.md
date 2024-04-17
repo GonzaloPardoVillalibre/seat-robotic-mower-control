@@ -30,21 +30,21 @@ The `make help` utility is available to the developer and provides a list of use
 ### Run the mower control service
 First, build the seat-robotic-mower-control-0.0.1-SNAPSHOT.jar:
 
-    ```bash
-    make build
-    ```
+```bash
+ make build
+```
 
 You can also execute unit and e2e tests by:
 
-    ```bash
-    make test
-    ```
+```bash
+ make test
+```
 
 Then, run the service (it builds up the service anyways again anyways):
 
-    ```bash
-    make run
-    ```
+```bash
+ make run
+```
 ### Test the workflow API
 When the service is running you should be able to access the workflow API http://localhost:8080/api/workflow. 
 
@@ -55,7 +55,7 @@ Since it is a public API you should be able to test it using curl:
 
 You can also use the `make` utility to automatically execute curl operation given a desired input file path:
 ```bash
-make create-test-workflow f=./src/test/resources/test-assessment-workflow.txt
+ make create-test-workflow f=./src/test/resources/test-assessment-workflow.txt
 ```
 
 Finally, and maybe the easiest, you can always use the **Swagger API** at http://localhost:8080/swagger-ui/index.html#/mowing-workflow-controller/createWorkflowFromFile
