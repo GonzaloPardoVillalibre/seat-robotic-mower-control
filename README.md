@@ -30,26 +30,27 @@ Centralized application for controlling new mowers at the SEAT Martorell Factory
 The `make help` utility is available to the developer and provides a list of useful commands.
 
 ### Run the mower control service
-1. Build the seat-robotic-mower-control-0.0.1-SNAPSHOT.jar
+First, build the seat-robotic-mower-control-0.0.1-SNAPSHOT.jar:
 
     ```bash
     make build
     ```
 
-   You can also execute unit and e2e tests by
+You can also execute unit and e2e tests by:
 
     ```bash
     make test
     ```
 
-2. Run the service (it builds up the service anyways)
+Then, run the service (it builds up the service anyways again anyways):
 
     ```bash
     make run
     ```
 ### Test the workflow API
-When the service is running you should be able to access the workflow API http://localhost:8080/api/workflow. Since it is a public API you should be able to test it using curl:
+When the service is running you should be able to access the workflow API http://localhost:8080/api/workflow. 
 
+Since it is a public API you should be able to test it using curl:
 ```bash
  curl -X POST -F file=@"testFilePath" http://localhost:8080/api/workflow
 ```
@@ -59,8 +60,8 @@ You can also use the `make` utility to automatically execute curl operation give
 make create-test-workflow f=./src/test/resources/test-assessment-workflow.txt
 ```
 
-Finally, and maybe the easiest, you can always use the **Swagger API** at `http://localhost:8080/swagger-ui/index.html#/mowing-workflow-controller/createWorkflowFromFile`
+Finally, and maybe the easiest, you can always use the **Swagger API** at http://localhost:8080/swagger-ui/index.html#/mowing-workflow-controller/createWorkflowFromFile
 
-At `src/test/resources` there is a useful collection of input file examples!
+At **src/test/resources** you can find a useful collection of input file examples!
 
 ## Improvements

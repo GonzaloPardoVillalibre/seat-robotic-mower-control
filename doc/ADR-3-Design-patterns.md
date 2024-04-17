@@ -41,7 +41,7 @@ I must admit at this point something looked a little bit odd to me... We were mi
 This ensures that the service remains agnostic of the specifics of command instantiation and focuses on higher-level orchestration.
 
 ### Potential Inclusion of Abstract Factory
-Considering future enhancements and different mower versions, the potential inclusion of the abstract factory design pattern can be evaluated. This pattern would allow us to manage multiple factory method classes, each tailored to different versions of mowers or perhaps different operational environments. The abstract factory would serve as an interface for creating families of related objects (factories) without specifying their concrete classes, thus further encapsulating the creation logic and enhancing flexibility across different scenarios.
+Considering future enhancements and different mower versions, the potential inclusion of the abstract factory design pattern can be evaluated. This pattern would allow us to manage multiple factory method classes, each tailored to different versions of mowers or perhaps different operational environments.
 
 ## Conclusion
 The strategic implementation of design patterns has not only simplified the hexagonal architecture but also prepared the system for future enhancements. The clear segregation of responsibilities and the abstraction of operational logic into distinct patterns foster an adaptable and robust architecture, ready to accommodate evolving requirements and different operational contexts.
