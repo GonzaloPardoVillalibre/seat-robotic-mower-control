@@ -7,7 +7,7 @@ Document and elucidate the design process behind our model, emphasizing the adop
 ## CONTEXT
 In the initial stages of the project, it became evident that a composite data model was most suitable. This model entails a main entity, Plateau, which is composed of multiple Mowers.
 
-## DECISION
+## DECISIONS
 
 ### Rich Domain Model with Delegator Pattern
 Initially, a **Rich Domain Model** was chosen, utilizing the delegator design pattern. This design involved:
@@ -16,7 +16,7 @@ Initially, a **Rich Domain Model** was chosen, utilizing the delegator design pa
 - **Simplifying Interactions**: By delegating responsibilities directly to the domain entities, the model initially aimed to reduce the complexity of interactions within the system, promoting a more intuitive and maintainable architecture.
 
 ### Transition to Anemic Domain Model
-However, it quickly became apparent that a Rich Domain Model might overcomplicate the interactions between the entities due to excessive logic embedded within the domain objects themselves. To address this, the decision was made to shift towards an **Anemic Domain Model** through a centralizing logic in `@Service`. The service, now designated as the usecase, was tasked with broader responsibilities, moving away from a delegator-centric approach. This includes:
+However, it quickly became apparent that a Rich Domain Model might overcomplicate the interactions between the entities due to excessive logic embedded within the domain objects themselves. To address this, the decision was made to shift towards an **Anemic Domain Model** through a centralizing logic in a `@Service`. The service, now designated as the usecase, was tasked with broader responsibilities, moving away from a delegator-centric approach. This includes:
 - **Parsing and Validating Input**: This operation is offloaded to a separate `@Component` to adhere to the Single Responsibility Principle, ensuring that our service remains focused on core functionalities.
 - **Mower Movement Coordination**: The service orchestrates the movement of mowers across the field. It ensures that the mowers do not collide and remain within the predefined boundaries of the grid.
 
@@ -41,9 +41,9 @@ I must admit at this point something looked a little bit odd to me... We were mi
 This ensures that the service remains agnostic of the specifics of command instantiation and focuses on higher-level orchestration.
 
 ### Potential Inclusion of Abstract Factory
-Considering future enhancements and different mower versions, the potential inclusion of the abstract factory design pattern can be evaluated. This pattern would allow us to manage multiple factory method classes, each tailored to different versions of mowers or perhaps different operational environments. The abstract factory would serve as an interface for creating families of related objects (factories) without specifying their concrete classes, thus further encapsulating the creation logic and enhancing flexibility across different scenarios.
+Considering future enhancements and different mower versions, the potential inclusion of the abstract factory design pattern can be evaluated. This pattern would allow us to manage multiple factory method classes, each tailored to different versions of mowers or perhaps different operational environments.
 
-## Conclusion
+## CONCLUSION
 The strategic implementation of design patterns has not only simplified the hexagonal architecture but also prepared the system for future enhancements. The clear segregation of responsibilities and the abstraction of operational logic into distinct patterns foster an adaptable and robust architecture, ready to accommodate evolving requirements and different operational contexts.
 
 It's important to ensure that the service layer does not become a monolith, especially as features expand. We should consider discussing strategies to maintain its manageability, such as breaking it into smaller, more focused services or incorporating domain-driven design subdomains if complexity grows.

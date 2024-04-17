@@ -5,6 +5,9 @@ import com.seatcode.seatroboticmowercontrol.domain.Mower
 import com.seatcode.seatroboticmowercontrol.domain.Plateau
 import org.springframework.stereotype.Component
 
+/**
+ * Factory method implementation to abstract command creation logic
+ */
 @Component
 class MowerCommandFactory : CommandFactory {
     override fun createCommand(commandChar: Char, mower: Mower, plateau: Plateau): Command {
@@ -17,6 +20,9 @@ class MowerCommandFactory : CommandFactory {
     }
 }
 
+/**
+ * Command implementation for MOVE concrete command
+ */
 class MoveCommand(private val mower: Mower, private val plateau: Plateau) : Command {
     override fun execute() {
         val nextPosition = mower.calculateNextPosition()
@@ -31,12 +37,18 @@ class MoveCommand(private val mower: Mower, private val plateau: Plateau) : Comm
     }
 }
 
+/**
+ * Command implementation for SPIN LEFT concrete command
+ */
 class SpinLeftCommand(private val mower: Mower) : Command {
     override fun execute() {
         mower.spinLeft()
     }
 }
 
+/**
+ * Command implementation for SPIN RIGHT concrete command
+ */
 class SpinRightCommand(private val mower: Mower) : Command {
     override fun execute() {
         mower.spinRight()

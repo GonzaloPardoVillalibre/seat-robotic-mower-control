@@ -9,6 +9,9 @@ import org.springframework.http.ResponseEntity
 import org.springframework.web.bind.annotation.*
 import org.springframework.web.multipart.MultipartFile
 
+/**
+ * MowingWorkflow Adapter (Hexagonal ports and adapters).
+ */
 @RestController
 @RequestMapping("/api/workflow")
 class MowingWorkflowController(private val mowingWorkflowUseCase: MowingWorkflowPort) {

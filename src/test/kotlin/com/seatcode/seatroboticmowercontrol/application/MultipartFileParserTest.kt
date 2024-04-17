@@ -48,7 +48,23 @@ internal class MultipartFileParserTest {
             parser.parse(multipartFile)
         }
 
-        assertTrue(exception.message!!.contains("Invalid plateau"))
+        assertTrue(exception.message!!.contains("Invalid plateau coordinates. Expected two positive integers"))
+    }
+
+    @Test
+    fun `test file with negative plateau description throws MultipartFileParserException`() {
+        val parser = MultipartFileParser()
+        val content = this::class.java.getResource("fixtures/invalidPlateauCoordinates.txt")?.readText()
+        val multipartFile = MockMultipartFile(
+            "file", "invalidPlateauSize.txt", "text/plain",
+            content?.toByteArray(StandardCharsets.UTF_8)
+        )
+
+        val exception = assertThrows(MultipartFileParserException::class.java) {
+            parser.parse(multipartFile)
+        }
+
+        assertTrue(exception.message!!.contains("Invalid plateau coordinates. Expected two positive integers"))
     }
 
     @Test
