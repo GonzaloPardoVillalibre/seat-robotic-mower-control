@@ -201,7 +201,7 @@ internal class MowingWorkflowControllerE2ETests {
 
         // Assertions
         assertEquals(HttpStatus.BAD_REQUEST, response.statusCode)
-        response.body?.contains("Error creating mowing workflow: Invalid plateau coordinates. Expected two integers")
+        response.body?.contains("Error creating mowing workflow: Invalid plateau coordinates. Expected two positive integers")
             ?.let { assert(it) }
     }
 
