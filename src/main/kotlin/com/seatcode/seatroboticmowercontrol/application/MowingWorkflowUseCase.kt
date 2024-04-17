@@ -30,18 +30,19 @@ class MowingWorkflowUseCase(
     }
 
     private fun executeMowerCommands(mower: Mower, commands: String, plateau: Plateau, mowerIndex: Int) {
+        log.info("Initiation execution for Mower ${mowerIndex + 1} at ${mower.getCoordinates()} with command instructions: $commands")
         for (index in commands.indices) {
             try {
                 val command = mowerCommandFactory.createCommand(commands[index], mower, plateau)
                 command.execute()
             } catch (e: Exception) {
-                log.error(
+                log.warn(
                     "Error executing command ${index + 1} " +
                             "for mower number ${mowerIndex + 1} at ${mower.getCoordinates()}: ${e.message}"
                 )
-                log.info("Mower number ${mowerIndex + 1} execution stopped at ${mower.getCoordinates()}")
                 break
             }
         }
+        log.info("Execution for Mower ${mowerIndex + 1} finished at ${mower.getCoordinates()}")
     }
 }
