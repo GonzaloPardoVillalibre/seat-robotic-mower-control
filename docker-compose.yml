@@ -1,0 +1,12 @@
+version: "3"
+services:
+  #######################################
+  # Seat Robotic Mower Control
+  #######################################
+  mowercontrol:
+    container_name: mowercontrol
+    build:
+      dockerfile: Dockerfile
+    restart: always
+    ports:
+      - "8080:8080"
